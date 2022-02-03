@@ -147,7 +147,8 @@ export default function DebtorCard({
             <Button
               isDisabled={status != "unpaid"}
               onClick={open}
-              w="25%"
+              w="max"
+              p="3"
               colorScheme="teal"
               variant="outline"
               alignSelf="center"
