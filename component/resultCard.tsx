@@ -34,18 +34,11 @@ export default function ResultCard({
     }
   };
   return (
-    <Flex
-      bg="grey"
-      borderRadius="xl"
-      w="50vw"
-      h="30vh"
-      alignSelf="center"
-      m="5"
-    >
-      <Flex flexDir="column" h="100%" bg="yellow" p="5" borderRadius="xl">
+    <Flex bg="grey" w="50vw" h="30vh" alignSelf="center" m="5">
+      <Flex flexDir="column" h="100%" bg="yellow" p="5">
         {ownerName}
       </Flex>
-      <Flex flexDir="column" w="100%" bg="pink" p="5" borderRadius="xl">
+      <Flex flexDir="column" w="100%" bg="pink" p="5">
         {/* <Text m="1">Id: {debtorId}</Text> */}
         <Text m="1">Name: {debtor}</Text>
         <Text m="1">Outstanding balance: {outstandingBalance}</Text>

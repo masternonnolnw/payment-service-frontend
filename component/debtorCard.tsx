@@ -16,6 +16,7 @@ import {
   Spacer,
   Text,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import axios from "axios";
 import moment from "moment";
@@ -40,6 +41,8 @@ export default function DebtorCard({
     handleSubmit(event);
     close();
   };
+
+  const [isNotSmallerScreen] = useMediaQuery("(min-width:800px)");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -103,38 +106,40 @@ export default function DebtorCard({
     <Flex
       w="100vw"
       h="100vh"
-      bg="blackAlpha.50"
+      bg="blackAlpha.100"
       flexDir="column"
       justifyContent="center"
     >
       <Flex
-        w="50vw"
+        w="60vw"
         h="max"
         bg="white"
         alignSelf="center"
         flexDir="column"
         p="5"
         shadow="xl"
-        borderRadius="xl"
       >
-        <Text alignSelf="center" fontSize="2xl" m="3">
+        <Text
+          alignSelf="center"
+          fontSize={isNotSmallerScreen ? "2xl" : "xl"}
+          m="3"
+        >
           {debtor}
         </Text>
 
-        <Text fontSize="xl" m="3">
+        <Text fontSize={isNotSmallerScreen ? "xl" : "lg"} m="3">
           Owner: {ownerName}
         </Text>
 
-        <Text fontSize="xl" m="3">
+        <Text fontSize={isNotSmallerScreen ? "xl" : "lg"} m="3">
           Amount: {outstandingBalance}
         </Text>
 
-        <Text fontSize="xl" m="3">
-          Last payment:{" "}
-          {moment(String(lastPayment)).format("DD/MM/YYYY hh:mm a")}
+        <Text fontSize={isNotSmallerScreen ? "xl" : "lg"} m="3">
+          Last payment: {moment(String(lastPayment)).format("DD/MM/YY hh:mm a")}
         </Text>
 
-        <Text fontSize="xl" m="3">
+        <Text fontSize={isNotSmallerScreen ? "xl" : "lg"} m="3" mb="5">
           Status: {status}
         </Text>
         <Popover isOpen={isOpen}>
@@ -143,6 +148,8 @@ export default function DebtorCard({
               isDisabled={status != "unpaid"}
               onClick={open}
               w="25%"
+              colorScheme="teal"
+              variant="outline"
               alignSelf="center"
               _focus={{
                 outline: "none",
@@ -175,7 +182,9 @@ export default function DebtorCard({
                   <Button
                     onClick={handleSubmitClose}
                     mt="4"
-                    w="25%"
+                    colorScheme="blue"
+                    w="max"
+                    variant="outline"
                     _focus={{
                       outline: "none",
                     }}
@@ -195,9 +204,10 @@ export default function DebtorCard({
             isDisabled={status != "pending"}
             mt="4"
             alignSelf="center"
-            w="15%"
+            w="max"
             h="100%"
-            bg="red.200"
+            colorScheme="red"
+            variant="outline"
             _focus={{
               outline: "none",
             }}
