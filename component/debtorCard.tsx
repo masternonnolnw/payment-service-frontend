@@ -111,7 +111,7 @@ export default function DebtorCard({
       justifyContent="center"
     >
       <Flex
-        w="60vw"
+        w={isNotSmallerScreen ? "60vw" : "80vw"}
         h="max"
         bg="white"
         alignSelf="center"

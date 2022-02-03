@@ -67,12 +67,11 @@ export default function ResultCard({
         {/* <Text m="1">Id: {debtorId}</Text> */}
         <Text m="1">Outstanding balance: {outstandingBalance}</Text>
         <Text m="1">
-          Last payment:{" "}
-          {moment(String(lastPayment)).format("DD/MM/YYYY hh:mm a")}
+          Last payment: {moment(String(lastPayment)).format("DD/MM/YY hh:mm a")}
         </Text>
         <Text m="1">Status: {status}</Text>
         <Text m="1">
-          submitTime: {moment(String(submitTime)).format("DD/MM/YYYY hh:mm a")}
+          submitTime: {moment(String(submitTime)).format("DD/MM/YY hh:mm a")}
         </Text>
         <Button
           w="max"
