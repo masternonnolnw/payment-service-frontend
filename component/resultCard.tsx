@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import moment from "moment";
+import { useState } from "react";
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ResultCard({
@@ -51,20 +52,19 @@ export default function ResultCard({
       border="1px"
       borderColor="blackAlpha.50"
       alignContent="center"
-      w="70vw"
+      w={isNotSmallerScreen ? "50vw" : "70vw"}
       // flexDir="column"
       flexDir="column"
     >
       <Flex flexDir="column" h="100%" p="5">
         <Spacer />
-        <Text alignSelf="center" fontSize="xl">
-          {ownerName}
+        <Text alignSelf="center" fontSize="2xl">
+          {debtor}
         </Text>
         <Spacer />
       </Flex>
       <Flex flexDir="column" w="100%" p="5" pl="5" pt="0">
         {/* <Text m="1">Id: {debtorId}</Text> */}
-        <Text m="1">Name: {debtor}</Text>
         <Text m="1">Outstanding balance: {outstandingBalance}</Text>
         <Text m="1">
           Last payment:{" "}
