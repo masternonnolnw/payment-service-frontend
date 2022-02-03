@@ -1,4 +1,11 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Flex,
+  Spacer,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import axios from "axios";
 import moment from "moment";
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
@@ -14,6 +21,7 @@ export default function ResultCard({
   loadStatement,
   payAmount,
 }: any): any {
+  const [isNotSmallerScreen] = useMediaQuery("(min-width:800px)");
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     try {
@@ -34,11 +42,27 @@ export default function ResultCard({
     }
   };
   return (
-    <Flex bg="grey" w="50vw" h="30vh" alignSelf="center" m="5">
-      <Flex flexDir="column" h="100%" bg="yellow" p="5">
-        {ownerName}
+    <Flex
+      bg="white"
+      h="max"
+      alignSelf="center"
+      m="5"
+      shadow="xl"
+      border="1px"
+      borderColor="blackAlpha.50"
+      alignContent="center"
+      w="70vw"
+      // flexDir="column"
+      flexDir="column"
+    >
+      <Flex flexDir="column" h="100%" p="5">
+        <Spacer />
+        <Text alignSelf="center" fontSize="xl">
+          {ownerName}
+        </Text>
+        <Spacer />
       </Flex>
-      <Flex flexDir="column" w="100%" bg="pink" p="5">
+      <Flex flexDir="column" w="100%" p="5" pl="5" pt="0">
         {/* <Text m="1">Id: {debtorId}</Text> */}
         <Text m="1">Name: {debtor}</Text>
         <Text m="1">Outstanding balance: {outstandingBalance}</Text>
@@ -54,6 +78,9 @@ export default function ResultCard({
           w="max"
           p="5"
           m="1"
+          mt="4"
+          colorScheme="green"
+          variant="outline"
           isDisabled={status != "pending"}
           onClick={handleSubmit}
           _focus={{

@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ResultCard from "./resultCard";
@@ -32,14 +32,17 @@ export default function OwnerMainPage() {
   }, []);
   return (
     <>
-      <Flex
-        bg="green.500"
-        w="100vw"
-        h="100vh"
-        flexDir="column"
-        p="5"
-        overflow="auto"
-      >
+      <Flex w="100vw" h="100vh" flexDir="column" p="5" overflow="auto">
+        <Heading
+          alignSelf="center"
+          m="10"
+          fontSize="7xl"
+          bgGradient="linear(to-l, #7928CA, #FF0080)"
+          bgClip="text"
+          fontWeight="extrabold"
+        >
+          MaStEr
+        </Heading>
         {allStatements.map((statement) => (
           <ResultCard
             ownerName={statement.ownerName}
