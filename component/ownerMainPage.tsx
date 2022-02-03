@@ -2,8 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ResultCard from "./resultCard";
-
-const baseURL = "http://localhost:8000/statement";
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 export default function OwnerMainPage() {
   const [allStatements, setStatement] = useState([
     {

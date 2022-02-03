@@ -3,9 +3,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import DebtorCard from "../../component/debtorCard";
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function DebtorMainPage() {
-  const baseURL = "http://localhost:8000/statement";
   const router = useRouter();
   const pathData = router.query;
   var debtorId = pathData.id;

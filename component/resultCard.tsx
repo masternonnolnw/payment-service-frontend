@@ -1,7 +1,7 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import axios from "axios";
 import moment from "moment";
-const baseURL = "http://localhost:8000/statement";
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ResultCard({
   ownerName,
