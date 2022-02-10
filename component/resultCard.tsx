@@ -52,7 +52,7 @@ export default function ResultCard({
       border="1px"
       borderColor="blackAlpha.50"
       alignContent="center"
-      w={isNotSmallerScreen ? "50vw" : "70vw"}
+      w={isNotSmallerScreen ? "50vw" : "75vw"}
       // flexDir="column"
       flexDir="column"
     >
